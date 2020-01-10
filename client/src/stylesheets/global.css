@@ -1,0 +1,81 @@
+ul {
+    list-style: none;
+}
+
+.home-img {
+    width: 100%;
+}
+.myBtn-outline {
+    border-radius: 5px;
+    border: 3px solid rgb(96, 129, 201);
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(96, 129, 201);
+    background-color: transparent;
+}
+
+.myBtn-outline:hover {
+    color: white;
+    background-color: rgb(96, 129, 201);
+}
+
+@media screen and (max-width:800px){
+
+    nav ul{
+        flex-direction: column;
+        align-items: center;
+        margin-left: 20%;
+        margin-bottom: 5px;
+    }
+
+    nav li{
+        font-size: 26px;
+        padding: 5px;
+    }
+
+    #users-table{
+        font-size: 18px;
+    }
+
+    #users-table td, th{
+        border: 2px solid rgb(96, 129, 201);
+        padding: 1px 5px 1px 5px;
+    }
+
+    .info-container{
+        align-self: center;
+        width: 350px;
+    }
+
+    #pagination-menu{
+        width: 70vw;
+    }
+
+    #goto-page-menu input{
+        width:30vw; 
+        height: 7vh;
+    }
+
+
+    .inputForm input[type="submit"] {
+        height: 7vh;
+        width: 30vw;
+        margin-bottom: 10vh;
+    }
+
+    #upgrade-info{
+        height: 7vh; 
+        width: 30vw;
+    }
+
+    #switch-role-form{
+        position: static;
+        height: 10vh; 
+        width: 60vw;
+    }
+
+    #role-switch{
+        height: 7vh; 
+        width: 30vw;
+    }
+}

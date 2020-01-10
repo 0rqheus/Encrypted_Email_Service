@@ -1,0 +1,72 @@
+.setting-item, a {
+    font-family: sans-serif;
+    color: rgb(96, 129, 201);
+    font-size: 18px;
+    text-decoration: none;
+  }
+  
+  .user-container {
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    color: rgb(96, 129, 201);
+    font-size: 24px;
+    text-align: left;
+  }
+  
+  #user-photo {
+    min-width: 300px;
+    width: 100%;
+    height: auto;
+  }
+  
+  .photo-container {
+    max-width: 300px;
+    max-height: 300px;
+    overflow: hidden;
+    align-self: center;
+  }
+  
+  .info-container {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .info-container ul{
+    padding: 0px;
+    
+  }
+  
+  .info-container li {
+    margin-top: 5vh;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  #upgrade-info {
+    height: 5vh;
+    width: 15vw;
+  }
+  
+  #user-setting {
+    position: absolute;
+    right: 10vw;
+    width: 20vw;
+    height: 5vh;
+  }
+
+  #settings-btn{
+    background: white; 
+    border: 3px solid rgb(96, 129, 201); 
+    border-radius: 10px
+  }
+
+  .icon{
+    height: 37px; 
+    width: 41px; 
+    position: relative; 
+    top: -10px;
+  }

@@ -1,0 +1,17 @@
+h1 {
+    font-family: "Roboto";
+    font-size: 90px;
+  }
+  p {
+    font-family: "Roboto";
+    font-size: 70px;
+  }
+  #error {
+    margin-left: 60%;
+  }
+  body {
+    background: no-repeat url("../assets/404img.svg");
+    background-size: 90%;
+    background-position-x: -200px;
+    background-position-y: -350px;
+  }

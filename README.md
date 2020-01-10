@@ -10,12 +10,15 @@ This is a Node.js email application, created using Express.js, MongoDB, cryptico
 - file attachment( < 5MB)
 - 2 roles user and admin(can see other users and change their role)
 - view chat story
+- cloudinary for user account photo
+- mongodb as storage
+- jwt tokens as authorization system
 
 ### API 
 Using API you should realize encryption with cryptico library. There is API documentation on this site on about page.
 
 ### Setup
-Clone this repo to your desktop and run `npm install` to install all the dependencies. For developing comment 11-12 and 30-32 lines in app.js. Then go to client/ folder and setup client side accordingly to the local README.
+Clone this repo to your desktop and run `npm install` to install all the dependencies. Create `.env` file in root directory with custom properties. For developing comment 11-12 and 30-32 lines in app.js. Then go to client/ folder and setup client side accordingly to the local README.
 
 ### Todos 
 (for your hosting)

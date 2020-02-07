@@ -2,16 +2,15 @@
 
 <img src="client/src/assets/logo.svg" alt=logo width="113" height=80>
 
-This is a Node.js email application, created using Express.js, MongoDB, cryptico library and Vue.js that provides the functionality of general email service, such as sending and receiving emails, attach files, set labels, but with better safety.
+This is the email application (created using MEVN stack and cryptico library), that provides the functionality of general email service, such as sending and receiving emails, attach files, set labels, but with better safety.
 
 ### Features
 - end-to-end encryption
-- Vue.js SPA
+- SPA
 - file attachment( < 5MB)
 - 2 roles user and admin(can see other users and change their role)
 - view chat story
 - cloudinary for user account photo
-- mongodb as storage
 - jwt tokens as authorization system
 
 ### API 

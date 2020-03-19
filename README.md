@@ -17,7 +17,7 @@ This is the email application (created using MEVN stack and cryptico library), t
 Using API you should realize encryption with cryptico library. There is API documentation on this site on about page.
 
 ### Setup
-Clone this repo to your desktop and run `npm install` to install all the dependencies. Create `.env` file in root directory with custom properties. For developing comment 11-12 and 30-32 lines in app.js. Then go to client/ folder and setup client side accordingly to the local README.
+Clone this repo to your desktop and run `npm install` to install all the dependencies. Create `.env` file in root directory with your properties. For developing comment `publicRoot` variable and `app.get("/", ...)` function in app.js. Then go to client/ folder and setup client side accordingly to the local README.
 
 ### Todos 
 (for your hosting)

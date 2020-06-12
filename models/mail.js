@@ -1,8 +1,8 @@
-const Chat = require('./chat');
+const Chat = require("./chat");
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-let ObjectId = Schema.Types.ObjectId;
+const ObjectId = Schema.Types.ObjectId;
   
 
 const mailScheme = new Schema({
@@ -47,10 +47,15 @@ class Mail {
     }
 
     static getSubjectAndIdByLogin(login, userId){
-        return mail.find({ $and: [
-            {$or: [{ sender: login }, { receiver: login }]},
-            {ownerId: userId}
-        ]}, {subject:1, labels: 1});
+        return mail.find({ 
+            $and: [
+                {$or: [
+                    { sender: login }, 
+                    { receiver: login }
+                ]},
+                {ownerId: userId}
+            ]
+        }, {subject:1, labels: 1});
     }
 
     static async getById(id) {
@@ -59,10 +64,12 @@ class Mail {
 
     static async insert(mailParams, isSender) {
 
-        mailParams.labels = isSender ? {incoming: false, unread: false} : {incoming: true, unread: true};
+        mailParams.labels = isSender 
+            ? {incoming: false, unread: false} 
+            : {incoming: true, unread: true};
 
         const mailObj = new Mail(mailParams);
-        let newMail = await new mail(mailObj).save();
+        const newMail = await new mail(mailObj).save();
 
         Chat.createMail(newMail.ownerId, newMail.sender, newMail.receiver, newMail._id);
 

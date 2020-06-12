@@ -1,10 +1,8 @@
-const User = require('../models/user');
-const LocalStrategy = require('passport-local').Strategy;
-const express = require('express');
-
+const User = require("../models/user");
+const LocalStrategy = require("passport-local").Strategy;
+const express = require("express");
 const router = express.Router();
-
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 module.exports = function (passport) {
 
@@ -16,18 +14,18 @@ module.exports = function (passport) {
             .catch(err => done(err));
     });
 
-    passport.use('local', new LocalStrategy({
-        usernameField: 'login',
-        passwordField: 'password'
+    passport.use("local", new LocalStrategy({
+        usernameField: "login",
+        passwordField: "password"
     },
         async (login, password, done) => {
 
             try {
-                let user = await User.getByLogin(login);
-                if (!user) return done(null, false, { message: 'Incorrect login.' });
+                const user = await User.getByLogin(login);
+                if (!user) return done(null, false, { message: "Incorrect login." });
 
-                let res = await User.validatePassword(login, password);
-                if (!res) return done(null, false, { message: 'Incorrect password.' });
+                const res = await User.validatePassword(login, password);
+                if (!res) return done(null, false, { message: "Incorrect password." });
 
                 return done(null, user);
 
@@ -37,26 +35,26 @@ module.exports = function (passport) {
         }
     ));
 
-    router.get('/register', (req, res) => {
-        res.render('register', { user: req.user });
+    router.get("/register", (req, res) => {
+        res.render("register", { user: req.user });
     });
 
-    router.post('/register', async (req, res) => {
+    router.post("/register", async (req, res) => {
         const login = req.body.login;
         const password = req.body.password;
         const publicKey = req.body.publicKey;
 
         User.insert({ login, password, publicKey})
-                    .then(() => res.redirect('/auth/login'))
+                    .then(() => res.redirect("/auth/login"))
                     .catch(err => res.status(500).send(err.toString()));
     });
 
-    router.get('/login', (req, res) => {
-        res.render('login', { user: req.user });
+    router.get("/login", (req, res) => {
+        res.render("login", { user: req.user });
     });
 
     router.post("/login", (req, res, next) => {
-        passport.authenticate('local',  (err, user, info) => {
+        passport.authenticate("local",  (err, user, info) => {
 
             if (err || !user) {
                 return res.status(400).json({
@@ -67,16 +65,16 @@ module.exports = function (passport) {
             
             req.login(user,  (err) => {
                 if (err) return res.send(err);
-                const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '2h' });
+                const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "2h" });
                 return res.json({ user, token });
             });
         })(req, res, next);
     });
 
-    router.get('/logout',
+    router.get("/logout",
         (req, res) => {
             req.logout();
-            res.redirect('/');
+            res.redirect("/");
         });
 
     return router;

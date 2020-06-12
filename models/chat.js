@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-let ObjectId = Schema.Types.ObjectId;
+const ObjectId = Schema.Types.ObjectId;
 
 const chatScheme = new Schema({
     ownerId: ObjectId,
@@ -22,7 +22,7 @@ class Chat {
         this.messages = chatData.messages;
     }
     
-    static getAllByOwnerId(ownerId) { //getAllByLogin
+    static getAllByOwnerId(ownerId) {
         return chat.find({ ownerId:  ownerId});
     }
 
@@ -41,7 +41,7 @@ class Chat {
 
     static async insert(chatParams) {
         const newChat = new Chat(chatParams);
-        let promiseChat = await new chat(newChat).save();
+        const promiseChat = await new chat(newChat).save();
 
         return promiseChat._id;
     }
@@ -56,10 +56,15 @@ class Chat {
     }
 
     static async createMail(ownerId, person1, person2, messId) {
-        let promiseChat = await Chat.getByIdAndPersons(ownerId, person1, person2);
+        const promiseChat = await Chat.getByIdAndPersons(ownerId, person1, person2);
 
         if (!promiseChat) {
-            Chat.insert({ownerId: ownerId, person1: person1, person2: person2, messages: [messId] });
+            Chat.insert({
+                ownerId: ownerId, 
+                person1: person1, 
+                person2: person2, 
+                messages: [messId] 
+            });
         } else {
             promiseChat.messages.push(messId);
             Chat.update(promiseChat._id, promiseChat);
@@ -67,10 +72,10 @@ class Chat {
     }
 
     static async deleteMail(ownerId, person1, person2, messId) { 
-        let promiseChat = await Chat.getByIdAndPersons(ownerId, person1, person2);
+        const promiseChat = await Chat.getByIdAndPersons(ownerId, person1, person2);
 
         if (promiseChat) {
-            for (let i in promiseChat.messages) {
+            for (const i in promiseChat.messages) {
                 if (String(promiseChat.messages[i]) === String(messId)) {
                     promiseChat.messages.splice(i, 1);
                 }

@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
-  
+const Schema = mongoose.Schema;
+const defaulUserImg = "https://res.cloudinary.com/dlnpmqydd/image/upload/v1569785232/samples/animals/cat.jpg";
+
 const userScheme = new Schema({
     login: String,
     passwordHash: String,
@@ -20,10 +21,10 @@ class User{
         this.login = userData.login;
         this.passwordHash = userData.passwordHash;
         this.role = 0; // 0 - user, 1 - admin
-        this.fullname = userData.fullname || '';
+        this.fullname = userData.fullname || "";
         this.registeredAt = new Date();
-        this.avaUrl = userData.avaUrl || 'https://res.cloudinary.com/dlnpmqydd/image/upload/v1569785232/samples/animals/cat.jpg';
-        this.description = '';
+        this.avaUrl = userData.avaUrl || defaulUserImg;
+        this.description = "";
         this.publicKey = userData.publicKey;
     };
     
@@ -42,10 +43,11 @@ class User{
     }
 
     static async insert(userParams) {
-        userParams.passwordHash = await User.hashPassword(userParams.password);
-        const newUser = new User(userParams);
+        const params = userParams;
+        params.passwordHash = await User.hashPassword(userParams.password);
 
-        let promiseUser = await new user(newUser).save();
+        const newUser = new User(params);
+        const promiseUser = await new user(newUser).save();
 
         return promiseUser._id;
     }
@@ -59,12 +61,12 @@ class User{
     }
 
     static async validatePassword(login, password){
-        let currUser = await user.findOne({login}).exec();
+        const currUser = await user.findOne({login}).exec();
         return bcrypt.compare(password, currUser.passwordHash);
     }
 
     static async hashPassword(password){
-        return bcrypt.hash(password, 10); // returns promise
+        return bcrypt.hash(password, 10);
     }
 
 }

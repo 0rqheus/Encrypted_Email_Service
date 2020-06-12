@@ -6,9 +6,10 @@ module.exports = {
 
     checkAdmin: function(req, res, next) {
         req.user
-        ? req.user.role === 1
-            ? next()
-            : res.sendStatus(403) 
-        :res.sendStatus(401);
+            ? req.user.role === 1
+                ? next()
+                : res.sendStatus(403) 
+            : res.sendStatus(401);
     }
+
 };

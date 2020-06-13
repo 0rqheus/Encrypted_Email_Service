@@ -1,7 +1,14 @@
 <template>
-  <div id="error">
-    <h1>Error 404.</h1>
-    <p>Page not found.</p>
+  <div class="error-page">
+
+    <h1 class="error-page__title">
+      Error 404.
+    </h1>
+
+    <p class="error-page__text">
+      Page not found.
+    </p>
+
   </div>
 </template>
 
@@ -11,4 +18,4 @@ export default {
 };
 </script>
 
-<style src="../stylesheets/404.css" scoped></style>
+<style lang="scss" src="../stylesheets/404.scss" scoped></style>

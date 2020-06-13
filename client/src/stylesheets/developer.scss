@@ -1,0 +1,102 @@
+$fontSize: 25px;
+$mainColor: rgb(96, 129, 201);
+
+.api {
+  width: 60%;
+  margin: 0% 20% 10% 20%;
+  text-align: left;
+  font-size: $fontSize;
+  color: $mainColor;
+
+  &__title {
+    font-size: $fontSize * 2 - 5px;
+    text-align: center;
+    font-weight: 530;
+  }
+
+  &__subtitle {
+    font-size: $fontSize * 2 - 10px;
+    text-align: center;
+  }
+}
+
+.api-method {
+  margin-bottom: 3vh;
+
+  &__summary {
+    font-size: $fontSize + 5px;
+  }
+
+  &__description {
+    font-style: italic;
+  }
+
+  &__header {
+    font-size: $fontSize + 5px;
+    font-weight: 550;
+  }
+
+  &__text {
+    padding-bottom: 0px;  
+  }
+
+  &__code {
+    font-size: $fontSize / 1.5;
+
+    pre {
+      border: 1px solid black;
+    }
+  }
+
+}
+
+.api-params-table {
+  width: 80%;
+  margin-bottom: 4vh;
+  border-spacing: 0px;
+  text-align: center;
+
+  td, th {
+    border: 2px solid $mainColor;
+    background: white;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+
+  .api {
+    margin: 0% 10% 10% 10%;
+    width: 80%;
+  
+    &__title {
+      font-size: $fontSize * 2 - 10px;
+    }
+  
+    &__subtitle {
+      font-size: $fontSize * 2 - 15px;
+    }
+  }
+
+  .api-method {
+    &__summary {
+      font-size: $fontSize + 5px;
+    }
+  
+    &__header {
+      font-size: $fontSize;
+    }
+  
+    &__text {
+      font-size: $fontSize - 5px;
+      margin-top: 0px;
+      margin-bottom: 4vh;
+    }
+  
+  }
+  
+  .api-params-table {
+    width: 100%;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,169 @@
+$iconSize: 45px;
+$fontSize: 28px;
+
+$optionTop: 13.5vh;
+$optionRight: 9vw;
+
+$mainColor: #6081c9;
+$secondColor: #23a7b3;
+
+
+.no-results-title {
+  text-align: center;
+  font-size: $fontSize * 2;
+  font-weight: bold;
+  margin-top: 3vh;
+  color: $mainColor;
+}
+
+.option-compose {
+  position: absolute;
+  top: $optionTop;
+  right: $optionRight;
+
+  &__icon {
+    width: $iconSize;
+    height: $iconSize;
+  }
+}
+
+.option-delete {
+  position: absolute;
+  top: $optionTop;
+  right: $optionRight;
+
+  width: $iconSize;
+  height: $iconSize;
+
+  border: none !important;
+  background: no-repeat center url(../assets/del1.svg);
+  background-size: contain;
+  background-color: transparent !important;
+}
+
+.results-amount {
+  font-size: $fontSize / 2;
+  text-align: center;
+  color: $mainColor;
+}
+
+.collection {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  margin: auto;
+  padding: 0 0 15vh 0;
+  text-align: left;
+  font-size: $fontSize;
+  color: $mainColor;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    height: 50px;
+    width: 100%;
+
+    margin-top: 30px;
+
+    background: white;
+  }
+
+  &__item-link {
+    max-width: 70%;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+      color: $secondColor;
+    }
+  }
+
+  &__item-labels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 20vw;
+  }
+
+  &__item-label {
+    margin: 1px;
+    font-size: $fontSize / 2 !important;
+    color: white;
+    background: $secondColor !important;
+  }
+}
+
+.users-table {
+  width: 80%;
+
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 4vh;
+
+  border-spacing: 0px;
+
+  text-align: center;
+  font-size: $fontSize;
+  color: $mainColor;
+
+  &__item {
+    max-width: 300px;
+    padding: 1px 3px 1px 3px;
+    border: 2px solid $mainColor;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: white;
+
+    &-link {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  .option-compose {
+    top: 23vh;
+    right: 2vw;
+
+    &__icon {
+      width: $iconSize - 10px;
+      height: $iconSize - 10px;
+    }
+  }
+
+  .option-delete {
+    position: absolute;
+    top: $optionTop + 10vh;
+    right: $optionRight - 5vw;
+  }
+
+  .results-amount {
+    margin-bottom: 0px;
+  }
+
+  .collection {
+    width: 80%;
+    padding-bottom: 5vh;
+  }
+
+  .users-table {
+    font-size: $fontSize - 4px;
+  
+    &__item {
+      padding: 1px 2px 1px 2px;
+      max-width: 150px;
+  
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+    "extends": [
+        "plugin:vue/recommended"
+    ],
+
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "rules": {
+        "strict": ["error", "global"],
+        "quotes": ["error", "double"],
+        "prefer-const": "error",
+        "semi": "error",
+        "no-unused-vars": ["error", { "vars": "all", "args": "after-used" }],
+        "no-undefined": "error",
+        "no-undef": "error",
+        "eqeqeq": "error",
+        "no-var": "error",
+        "no-multiple-empty-lines": 1,
+        "vue/multiline-html-element-content-newline": ["error", {
+            "allowEmptyLines": true
+        }],
+        "vue/max-attributes-per-line": ["error", {
+            "singleline": 3
+          }]
+    },
+    "env" : {
+        "es6": true,
+        "node": true,
+        "browser": true
+    }
+}

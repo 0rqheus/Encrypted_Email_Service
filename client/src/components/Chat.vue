@@ -1,43 +1,82 @@
 <template>
   <div>
-    <h2 class="collections-header">{{header}}</h2>
 
-    <SearchBar class="d-none d-md-flex" v-bind:entities.sync="chatMails" v-bind:search.sync="search" v-bind:type="type" />
-    <b-button class="d-none d-md-block" id="delete-btn" type="button" v-on:click="showDeleteModal"></b-button>
+    <SearchBar
+      :entities.sync="chatMails"
+      :search.sync="search"
+      :type="type"
+    />
 
-    <div id="tools" class="d-flex d-md-none">
-      <SearchBar id="search-el" v-bind:entities.sync="chatMails" v-bind:search.sync="search" v-bind:type="type" />
-      <b-button id="delete-btn" type="button" v-on:click="showDeleteModal"></b-button>
-    </div>
+    <h3 v-show="message" class="no-results-title">
+      {{ message }}
+    </h3>
+
+    <b-button class="option-delete" @click="showDeleteModal" />
 
     <div v-show="hasResults">
-      <p class="results-amount">({{entitiesAmount}} results)</p>
 
-      <ul class="collections-list">
-        <li v-for="chatMail in chatMails.messages" v-bind:key="chatMail.id">
-          <router-link :to="{ name: 'Mail', params:{id: chatMail.id}}">
-            <p class="entity-link">{{chatMail.name}} </p>
+      <p class="results-amount">
+        ({{ entitiesAmount }} results)
+      </p>
+
+      <ul class="collection">
+        <li v-for="chatMail in chatMails.messages" :key="chatMail.id" class="collection__item">
+
+          <router-link :to="{ name: 'Mail', params:{id: chatMail.id}}" class="collection__item-link">
+            {{ chatMail.name }}
           </router-link>
-          <div id="list-labels" class="d-flex flex-wrap">
-            <b-badge v-show="chatMail.labels.incoming == true" pill class="min-labels">incoming</b-badge>
-            <b-badge v-show="chatMail.labels.incoming == false" pill class="min-labels">outgoing</b-badge>
-            <b-badge v-show="chatMail.labels.unread" pill class="min-labels">unread</b-badge>
-            <b-badge v-show="chatMail.labels.important" pill class="min-labels">important</b-badge>
-            <b-badge v-show="chatMail.labels.spam" pill class="min-labels">spam</b-badge>
+
+          <div class="collection__item-labels">
+            <b-badge
+              v-show="chatMail.labels.incoming == true"
+              pill
+              class="collection__item-label"
+            >
+              incoming
+            </b-badge>
+            <b-badge
+              v-show="chatMail.labels.incoming == false"
+              pill
+              class="collection__item-label"
+            >
+              outgoing
+            </b-badge>
+            <b-badge
+              v-show="chatMail.labels.unread"
+              pill
+              class="collection__item-label"
+            >
+              unread
+            </b-badge>
+            <b-badge
+              v-show="chatMail.labels.important"
+              pill
+              class="collection__item-label"
+            >
+              important
+            </b-badge>
+            <b-badge
+              v-show="chatMail.labels.spam"
+              pill
+              class="collection__item-label"
+            >
+              spam
+            </b-badge>
           </div>
         </li>
       </ul>
 
       <PaginationMenu
-        v-bind:entities.sync="chatMails"
-        v-bind:search="search"
-        v-bind:entitiesAmount.sync="entitiesAmount"
-        v-bind:type="type"
+        :entities.sync="chatMails"
+        :search="search"
+        :entities-amount.sync="entitiesAmount"
+        :type="type"
       />
     </div>
+
   </div>
 </template>
 
 <script src="../javascripts/chat.js"></script>
 
-<style src="../stylesheets/collections.css"></style>
+<style lang="scss" src="../stylesheets/collections.scss"></style>

@@ -1,38 +1,46 @@
 <template>
   <form
-    v-on:submit="update"
-    class="inputForm inputForm needs-validation d-flex flex-column align-items-center"
+    class="custom-form needs-validation d-flex flex-column align-items-center"
     name="user"
     enctype="multipart/form-data"
+    @submit="update"
   >
-
-    <b-form-file class="col-11 col-md-6 mt-3" id="customFile" type="file" name="file" placeholder="Choose new photo"></b-form-file>
+    <b-form-file
+      id="customFile"
+      class="col-11 col-md-6 mt-3"
+      type="file"
+      name="file"
+      placeholder="Choose new photo"
+    />
 
     <div class="form-group col-xs-8 col-md-6 mt-3">
-      <label for="fullname">Fullname:</label>
+      <label class="custom-form__label" for="fullname">Fullname:</label>
       <input
-        class="form-control"
         id="fullname"
+        class="form-control custom-form__input"
         type="text"
         name="fullname"
-        v-bind:value="currUser.fullname"
+        :value="currUser.fullname"
+      >
+    </div>
+
+    <div class="form-group col-xs-8 col-md-6 mt-3">
+      <label class="custom-form__label" for="description">Description:</label>
+      <textarea
+        id="description"
+        class="form-control custom-form__input"
+        name="description"
+        :value="currUser.description"
       />
     </div>
 
-    <div class="form-group col-xs-8 col-md-6 mt-3">
-      <label for="description">Description:</label>
-      <textarea
-        class="form-control"
-        id="description"
-        name="description"
-        v-bind:value="currUser.description"
-      ></textarea>
-    </div>
-
-    <input class="myBtn-outline mt-4" type="submit" value="Submit" />
+    <button class="myBtn_outline custom-form__submit mt-4" type="submit">
+      Submit
+    </button>
+    
   </form>
 </template>
 
 <script src="../javascripts/update.js"></script>
 
-<style src="../stylesheets/form.css" scoped></style>
+<style lang="scss" src="../stylesheets/form.scss" scoped></style>

@@ -1,0 +1,81 @@
+$mainColor: #6081c9;
+
+.settings {
+  position: absolute;
+  right: 10vw;
+
+  width: 20vw;
+  height: 5vh;
+
+  font-size: 18px;
+  color: $mainColor;
+
+  &__btn {
+    background: white;
+    border: 3px solid $mainColor;
+    border-radius: 10px;
+  }
+
+  &__icon {
+    height: 35px;
+    width: 35px;
+  }
+
+  &__item {
+
+    &-text {
+      color: $mainColor;
+    
+      &:hover {
+        text-decoration: none !important;
+      }
+    }
+
+    &-icon {
+      height: 37px;
+      width: 41px;
+      position: relative;
+      top: -10px;
+    }
+  }
+  
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  text-align: left;
+  color: $mainColor;
+
+  &__photo-container {
+    max-width: 300px;
+    max-height: 300px;
+    overflow: hidden;
+    align-self: center;
+  }
+
+  &__photo {
+    min-width: 300px;
+    width: 100%;
+    height: auto;
+  }
+
+  &__info {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    &-list {
+      padding: 0px;
+    }
+
+    &-item {
+      margin-top: 5vh;
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

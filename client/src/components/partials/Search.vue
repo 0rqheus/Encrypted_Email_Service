@@ -1,16 +1,18 @@
 <template>
-  <div id="search-menu">
+  <div class="searchbar">
     <input
       v-model="query"
-      v-on:input="searching"
-      id="searchbar"
-      class="form-control"
+      class="form-control searchbar__input"
       placeholder="Search..."
-    />
-    <img src="../../assets/hand_lens.svg" id="search-img" />
+      @input="searching"
+    >
+    <img
+      class="searchbar__search-icon"
+      src="../../assets/hand_lens.svg"
+    >
   </div>
 </template>
 
 <script src="../../javascripts/search.js"></script>
 
-<style src="../../stylesheets/search.css" scoped></style>
+<style lang="scss" src="../../stylesheets/search.scss" scoped></style>

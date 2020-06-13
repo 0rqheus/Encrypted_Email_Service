@@ -1,0 +1,176 @@
+$mainColor: #6081c9;
+$textColor: #3ca7e2;
+$option-size: 35px;
+
+.btn {
+  padding: 0 !important;
+}
+
+.dropdown-item {
+  font-family: sans-serif;
+  color: $mainColor;
+  font-size: 18px;
+
+  &:hover {
+    color: $textColor;
+  }
+}
+
+.mail-container {
+  margin-top: -5vh;
+}
+
+.top-container {
+  display: flex;
+  align-items: center;
+}
+
+.labels {
+  display: flex;
+  width: 48%;
+  margin-left: 2%;
+
+  &__item {
+    height: 28px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: $mainColor;
+  }
+  
+}
+
+.mail-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 48%;
+  margin-right: 2%;
+
+  &__important {
+    &:hover {
+      cursor: pointer;
+    }
+  
+    &-svg {
+      width: $option-size;
+      height: $option-size;
+      fill: none;
+    }
+  
+    &-svg-path_selected {
+      fill: yellow;
+    }
+  }
+
+  &__delete {
+    min-width: $option-size;
+    height: $option-size;
+    margin-left: 10%;
+    border: none;
+    background: no-repeat center url(../assets/del1.svg);
+    background-size: contain;
+  
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+    }
+  
+    &:focus {
+      background-color: transparent;
+      border-color: $mainColor;
+    }
+  }
+
+  &__settings {
+    margin-left: 10%;
+    color: $mainColor;
+  
+    &-dropdown {
+      background: none;
+    }
+  
+    &-icon {
+      height: $option-size;
+      width: $option-size;
+    }
+  }
+}
+
+
+.mail {
+  &__adresses-item {
+    padding-top: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: $mainColor;
+  }
+
+  &__content {
+    width: 70%;
+    margin: auto;
+    padding-bottom: 5%;
+    font-size: 22px;
+    color: $textColor;
+
+    &-title {
+      margin-bottom: 3vh;
+      word-wrap: break-word;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    &-text {
+      word-wrap: break-word;
+      white-space: pre-line;
+    }
+  }
+
+  &__attachments {
+    display: flex;
+    width: 60%;
+    margin: auto;
+    justify-content: space-around;
+  }
+}
+
+.get-attachment-btn {
+  height: 70px;
+  text-align: left;
+}
+
+@media screen and (max-width: 800px) {
+
+  .mail-options {
+    justify-content: space-between;
+    margin-right: 0;
+  
+    &__delete {
+      margin-left: 0;
+    }
+  
+    &__settings {
+      margin-left: 0;
+    }
+  }
+
+  .mail {
+    &__adresses-item {
+      padding-left: 5px;
+      font-size: 14px;
+    }
+  
+    &__content {
+      width: 85%;
+      font-size: 18px;
+  
+      &-title {
+        font-size: 34px;
+      }
+    }
+  }
+}

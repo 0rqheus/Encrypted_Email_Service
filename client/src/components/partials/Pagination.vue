@@ -1,32 +1,39 @@
 <template>
   <div>
-    <div id="pagination-container">
-      <div id="pagination-menu">
+    <div class="d-flex flex-column">
+
+      <div class="pagination-menu">
         <img
-          v-on:click="previous"
-          id="prev"
-          class="pagination-btn"
+          class="pagination-menu__arrow"
           src="../../assets/left_angular_arrow.svg"
-        />
-        <p id="page-info" class="align-self-center">{{currPage}} of {{pagesAmount}}</p>
+          @click="previous"
+        >
+        <p class="pagination-menu__page-info">
+          {{ currPage }} of {{ pagesAmount }}
+        </p>
         <img
-          v-on:click="next"
-          id="next"
-          class="pagination-btn"
+          class="pagination-menu__arrow"
           src="../../assets/right_angular_arrow.svg"
-        />
+          @click="next"
+        >
       </div>
 
-      <div id="goto-page-menu">
-        <input v-on:click="goto" id="goto-page-btn" type="button" class="myBtn-outline" value="Go to:" />
+
+      <div class="goTo-menu">
         <input
-          id="goto-page-num"
+          type="button"
+          class="goTo-menu__input goTo-menu__btn myBtn_outline"
+          value="Go to:"
+          @click="goTo"
+        >
+        <input
+          class="goTo-menu__input"
           name="page-num"
           type="number"
           min="1"
           value="1"
-          v-bind:max="pagesAmount"
-        />
+          :max="pagesAmount"
+        >
       </div>
     </div>
   </div>
@@ -34,4 +41,4 @@
 
 <script src="../../javascripts/pagination.js"></script>
 
-<style src="../../stylesheets/pagination.css" scoped></style>
+<style lang="scss" src="../../stylesheets/pagination.scss" scoped></style>

@@ -1,63 +1,82 @@
 <template>
   <form
-    id="registerForm"
-    v-on:submit="signup"
-    class="inputForm needs-validation mt-md-5 d-flex flex-column align-items-center m-md-auto"
+    class="custom-form needs-validation mt-md-5 d-flex flex-column align-items-center m-md-auto"
     novalidate
+    @submit="signup"
   >
-    <h1 class="inputFormHeader">Sign Up</h1>
+    <h1 class="custom-form__header">
+      Sign Up
+    </h1>
+
 
     <div class="form-group col-xs-8 col-md-6 col-lg-4 ml-md-2 ml-lg-4 mt-3">
-      <label for="login">Login:</label>
+      <label class="custom-form__label" for="loginInput">
+        Login:
+      </label>
       <input
+        id="loginInput"
         v-model="login"
-        v-on:input="checkLogin"
-        class="form-control"
+        class="form-control custom-form__input"
         type="email"
-        id="login"
         name="login"
         placeholder="jaden@example.com"
         required
-      />
-      <div ref="loginInvalidFeedback" class="invalid-feedback">Please, enter a valid email address!</div>
+        @input="checkLogin"
+      >
+      <div ref="loginInvalidFeedback" class="invalid-feedback">
+        Please, enter a valid email address!
+      </div>
     </div>
+
     <div class="form-group col-xs-8 col-md-6 col-lg-4 ml-md-2 ml-lg-4 mt-3">
-      <label for="password">Password:</label>
+      <label class="custom-form__label" for="passwordInput">
+        Password:
+      </label>
       <input
-        v-b-tooltip.hover title="For security reasons, you cannot change or reset your password"
+        id="passwordInput"
         v-model="pass"
-        v-on:input="comparePasswords"
-        class="form-control"
+        v-b-tooltip.hover
+        title="Keep in mind that for security reasons, you cannot change or reset your password"
+        class="form-control custom-form__input"
         type="password"
         name="password"
         minlength="3"
         maxlength="50"
         required
-      />
-      <div class="invalid-feedback">Please, enter a password!</div>
+        @input="comparePasswords"
+      >
+      <div class="invalid-feedback">
+        Please, enter a password!
+      </div>
     </div>
-    <div class="form-group col-xs-8 col-md-6 col-lg-4 ml-md-2 ml-lg-4 mt-3">
-      <label for="confirmPass">Confirm:</label>
+
+    <div class="form-group col-xs-8 col-md-6 col-lg-4 ml-md-2 ml-lg-4 mt-3 mb-5">
+      <label class="custom-form__label" for="confirmPassInput">
+        Confirm:
+      </label>
       <input
+        id="confirmPassInput"
         ref="confirmPass"
         v-model="confirmPass"
-        v-on:input="comparePasswords"
-        class="form-control"
+        class="form-control custom-form__input"
         type="password"
         name="confirmPass"
         required
-      />
-      <div class="invalid-feedback">Passwords must be equal</div>
+        @input="comparePasswords"
+      >
+      <div class="invalid-feedback">
+        Passwords must be equal
+      </div>
     </div>
 
-    <input
-      class="myBtn-outline btn-lg col-xs-8 col-md-3 col-lg-2 mt-0 mt-lg-5"
-      type="submit"
-      value="Submit"
-    />
+
+    <button class="myBtn_outline custom-form__submit" type="submit">
+      Submit
+    </button>
+
   </form>
 </template>
 
 <script src="../javascripts/signup.js"></script>
 
-<style src="../stylesheets/form.css" scoped></style>
+<style lang="scss" src="../stylesheets/form.scss" scoped></style>

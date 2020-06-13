@@ -1,0 +1,22 @@
+.error-page {
+  width: 97vw;
+  height: 90vh;
+
+  margin-top: -5vh;
+
+  text-align: right;
+  background: no-repeat url("../assets/404img.svg");
+  background-size: 100%;
+  background-position-x: -200px;
+  background-position-y: -350px;
+
+  &__title {
+    font-family: "Roboto";
+    font-size: 90px;
+  }
+
+  &__text {
+    font-family: "Roboto";
+    font-size: 70px;
+  }
+}

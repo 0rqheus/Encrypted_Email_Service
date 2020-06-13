@@ -1,0 +1,60 @@
+$mainColor: #6081c9;
+$arrowSize: 40px;
+
+.pagination-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 25vw;
+  margin: auto;
+  margin-bottom: 3vh;
+
+  &__arrow {
+    height: $arrowSize;
+    width: $arrowSize;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__page-info {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: $mainColor;
+  }
+}
+
+.goTo-menu {
+  width: 25vw;
+  margin: auto;
+  justify-content: center;
+
+  &__input {
+    width: 8vw;
+    height: 4vh;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .pagination-menu {
+    margin-bottom: 1vh;
+    width: 50vw;
+  }
+
+  .goTo-menu {
+    width: 50vw;
+
+    &__input {
+      width: 25vw;
+      height: 4vh;
+    }
+
+    &__btn {
+      height: 5vh;
+    }
+  }
+}

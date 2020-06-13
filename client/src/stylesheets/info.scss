@@ -1,0 +1,39 @@
+$textMargin: 4vh;
+
+.home-img {
+    width: 100%;
+}
+
+.main {
+    width: 75vw;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(96, 129, 201);
+
+    &__title {
+        font-size: 48px;
+        font-weight: bold;
+    }
+
+    &__text {
+        font-size: 27px;
+        margin-top: $textMargin;
+        margin-bottom: $textMargin;
+    }
+}
+
+@media screen and (max-width:800px){
+    .main {
+        margin: auto;
+        width: 80%;
+    }
+    
+    .main__title {
+        font-size: 40px;
+    }
+    
+    .main__text {
+        font-size: 27px;
+    }
+}

@@ -1,0 +1,58 @@
+$fontSize: 18px;
+$color: rgb(96, 129, 201);
+
+.custom-form {
+  color: $color;
+
+  &__header {
+    margin-top: 1vh;
+    text-align: center;
+    font-size: $fontSize * 3;
+  }
+
+  &__label {
+    font-family: Arial;
+    font-size: $fontSize;
+    font-weight: bold;
+  }
+
+  &__input {
+    border: 1px solid $color;
+    font-size: $fontSize - 2px;
+    color: darken($color, 15%) !important;
+  }
+
+  &__submit {
+    height: 5vh;
+    width: 8vw;
+    font-weight: bold;
+    margin-bottom: 15vh;
+  }
+
+  &__error {
+    padding: 2%;
+    margin-top: 2vh;
+    margin-bottom: -2vh;
+    background: rgb(247, 222, 222);
+    color: rgb(245, 80, 80);
+  
+    &-text {
+      font-size: $fontSize;
+      font-weight: bold;
+    }
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .custom-form {
+    &__error {
+      margin-bottom: 2vh;
+    }
+
+    &__submit {
+      height: 5vh;
+      width: 40vw;
+    }
+  }
+}

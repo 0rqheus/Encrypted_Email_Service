@@ -1,4 +1,4 @@
-# test-vue
+#  encrypted email service (client)
 
 ## Project setup
 ```

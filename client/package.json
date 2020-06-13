@@ -1,5 +1,5 @@
 {
-    "name": "encrypted-email-service",
+    "name": "cryptomail",
     "version": "0.3.0",
     "author": "Orqheus <yankevych.stas@gmail.com>",
     "private": true,

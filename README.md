@@ -1,4 +1,4 @@
-# Encrypted Email Service
+# encrypted email service
 
 <img src="client/src/assets/logo.svg" alt=logo width="113" height=80>
 

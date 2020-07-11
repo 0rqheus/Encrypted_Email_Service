@@ -60,7 +60,7 @@ export default {
 
         getPagesAmount: function () {
             const jwt = localStorage.getItem("jwt");
-            let path = `/api/v1/${this.type}/get_pages`;
+            let path = `/api/v1/${this.type}/get_amount_info`;
 
             if (this.search) 
                 path += `/?search=${this.search}`;

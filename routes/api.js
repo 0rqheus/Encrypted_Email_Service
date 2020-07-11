@@ -63,7 +63,7 @@ module.exports = function (passport) {
 
     router.use("/users", auth.checkAuth);
 
-    router.get("/users/get_pages", (req, res) => { //get amount info
+    router.get("/users/get_amount_info", (req, res) => { 
         const search = req.query.search;
         const entitiesPerPage = 4;
 
@@ -180,7 +180,7 @@ module.exports = function (passport) {
         });
 
     ////// Mails
-    router.get("/mails/get_pages", (req, res) => { //get amount info
+    router.get("/mails/get_amount_info", (req, res) => { 
         const search = req.query.search;
         const entitiesPerPage = 4;
 
@@ -299,7 +299,7 @@ module.exports = function (passport) {
     ////// Chats
     router.use("/chats", auth.checkAuth);
 
-    router.get("/chats/get_pages", (req, res) => {  //get amount info
+    router.get("/chats/get_amount_info", (req, res) => {  
         const search = req.query.search;
         const entitiesPerPage = 4;
 
@@ -336,7 +336,7 @@ module.exports = function (passport) {
         });
 
 
-    router.get("/chats/:id/get_pages", async (req, res) => {  //get amount info
+    router.get("/chats/:id/get_amount_info", async (req, res) => {  
         const id = req.params.id;
         const search = req.query.search;
         const entitiesPerPage = 4;
